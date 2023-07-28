@@ -14,14 +14,14 @@ def seed():
     user1= User(name="Stuart")
     user2= User(name ="Scott")
     user3= User(name="Liam")
-    game1= SportEvent(name="Wimbledon Final",sport="Tennis", location="London", date="8th,July,2023")
-    game2= SportEvent(name="Ashes 5th test",sport="Cricket", location="Melbourne", date="26th, December,2022")
+    event1= SportEvent(name="Wimbledon Final",sport="Tennis", location="London", date="8th,July,2023")
+    event2= SportEvent(name="Ashes 5th test",sport="Cricket", location="Melbourne", date="26th, December,2022")
 
     db.session.add(user1)
     db.session.add(user2)
     db.session.add(user3)
 
-    db.session.add(game1)
-    db.session.add(game2)
+    db.session.add(event1)
+    db.session.add(event2)
     db.session.commit()
 

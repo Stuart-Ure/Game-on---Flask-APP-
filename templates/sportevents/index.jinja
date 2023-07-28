@@ -1,0 +1,24 @@
+<header>
+  <h1><b> GAME ON</b> </h1>
+</header>
+
+{% block content %}
+  <h1>Sport Events</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Sport</th>
+      <th>Location</th>
+      <th>Date</th>
+    </tr>
+    {% for sportevent in sport_events %}
+    <tr>
+      <td><a href="/sportevents/{{ sportevent.name }}">{{ sportevent.name }}</a></td>
+      <td>{{ sportevent.sport }}</td>
+      <td> {{ sportevent.location }}</td>
+      <td>{{ sportevent.date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
