@@ -1,0 +1,25 @@
+from app import db
+from models import SportEvent, User
+import click
+
+from flask.cli import with_appcontext
+
+@click.command(name='seed')
+@with_appcontext
+def seed():
+    SportEvent.query.delete()
+    User.query.delete()
+    user1= User(name="Stuart")
+    user2= User(name ="Scott")
+    user3= User(name="Liam")
+    game1= SportEvent(name="Wimbledon Final",sport="Tennis", location="London", date="8th,July,2023")
+    game2= SportEvent(name="Ashes 5th test",sport="Cricket", location="Melbourne", date="26th, December,2022")
+
+    db.session.add(user1)
+    db.session.add(user2)
+    db.session.add(user3)
+
+    db.session.add(game1)
+    db.session.add(game2)
+    db.session.commit()
+    
