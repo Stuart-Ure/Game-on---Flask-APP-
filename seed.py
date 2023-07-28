@@ -1,5 +1,7 @@
 from app import db
-from models import SportEvent, User
+from models.sport_event import SportEvent
+from models.user import User
+from models.visits import Visit
 import click
 
 from flask.cli import with_appcontext
@@ -22,4 +24,4 @@ def seed():
     db.session.add(game1)
     db.session.add(game2)
     db.session.commit()
-    
+
