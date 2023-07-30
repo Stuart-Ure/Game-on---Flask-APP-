@@ -23,7 +23,6 @@ def sport_events():
 def show(id):
     sport_event = SportEvent.query.get(id)
     if sport_event is None:
-        # Handle the case when the sport event with the given ID does not exist.
         return render_template("errors/404.jinja"), 404
 
     return render_template("sportevents/show.jinja", sport_event=sport_event)

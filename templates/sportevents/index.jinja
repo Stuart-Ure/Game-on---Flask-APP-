@@ -13,7 +13,7 @@
     </tr>
     {% for sportevent in sport_events %}
     <tr>
-      <td><a href="/sportevents/{{ sportevent.name }}">{{ sportevent.name }}</a></td>
+      <td><a href="/sportevents/{{ sportevent.id }}">{{ sportevent.name }}</a></td>
       <td>{{ sportevent.sport }}</td>
       <td>{{ sportevent.location }}</td>
       <td>{{ sportevent.date }}</td>

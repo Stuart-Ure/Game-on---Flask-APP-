@@ -6,10 +6,11 @@
 
 <h3>Visited:</h3>
 <ul>
-    {% for sport event in Sport Event %}
-    <li>{{sportevent.name}}</li>
+    {% for sport_event in user.visits %}
+<li>{{ sport_event.name }}</li>
     {% endfor %}
 </ul>
     {%endblock%}
 
-    
+
+
