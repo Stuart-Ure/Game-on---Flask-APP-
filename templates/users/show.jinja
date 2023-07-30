@@ -1,24 +1,7 @@
-{# {% extends 'base.jinja' %}
-{% block content %}
-
-    <header> <h1><b> GAME ON</b> </h1> </header>
-    <h1> {{user.name}} </h1>
-    <h2> event list</h2>
-    <h3>Visited:</h3>
-<ul>
-    {% for sport_event in user.sport_events %}
-<li>{{ sport_event.name }}</li>
-    {% endfor %}
-</ul>
-    {%endblock%} #}
-
-
-
 {% extends 'base.jinja' %}
 
 {% block content %}
     <h1>{{ user.name }}</h1>
-    <h2>Event List</h2>
 
     <h3>Visited:</h3>
     <ul>
@@ -26,4 +9,13 @@
             <li>{{ sport_event.name }}</li>
         {% endfor %}
     </ul>
+    <h3>Add Attended Event:</h3>
+    <form action="/users/{{ user.id }}/add_attended_event" method="post">
+        <select name="event_id">
+            {% for sport_event in all_sport_events %}
+                <option value="{{ sport_event.id }}">{{ sport_event.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add</button>
+    </form>
 {% endblock %}

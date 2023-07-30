@@ -7,6 +7,8 @@ class User(db.Model):
     name = db.Column(db.String(64))
     visits = db.relationship('Visit', backref='user')
     sport_events = db.relationship('SportEvent', secondary='visits')
+    attended_events = db.relationship('SportEvent', secondary='visits')
+
 
 
     def __repr__(self):

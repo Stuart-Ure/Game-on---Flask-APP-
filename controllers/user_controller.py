@@ -23,5 +23,19 @@ def users():
 def show_users(id):
     user = User.query.get(id)
     sport_events = user.sport_events  # Access sport_events through the new relationship
+    all_sport_events = SportEvent.query.all() 
+    return render_template('users/show.jinja', user=user, sport_events=sport_events,  all_sport_events=all_sport_events)
+
+@users_blueprint.route('/users/<int:id>/add_attended_event', methods=['POST'])
+def add_attended_event(id):
+    user = User.query.get(id)
+    event_id = request.form.get('event_id')
     
-    return render_template('users/show.jinja', user=user, sport_events=sport_events)
+    if event_id:
+        # Update the database to mark the event as attended by the user
+        visit = Visit(user_id=user.id, sport_event_id=event_id)
+        db.session.add(visit)
+        db.session.commit()
+    
+    return redirect(f"/users/{user.id}")
+
