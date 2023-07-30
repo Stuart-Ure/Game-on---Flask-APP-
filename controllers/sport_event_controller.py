@@ -10,3 +10,20 @@ sport_event_blueprint = Blueprint("sport_event", __name__)
 def sport_events():
     sport_events = SportEvent.query.all()
     return render_template("sportevents/index.jinja", sport_events=sport_events)
+
+
+# @sport_event_blueprint.route("/sportevents/<int:id>")
+# def show(id):
+#     sport_event = SportEvent.query.get(id)
+#     users = User.query.join(Visit).filter(Visit.sport_event_id ==id)
+#     return render_template("sportevents/show.jinja", sport_event = sport_event, users =users)
+
+
+@sport_event_blueprint.route("/sportevents/<int:id>")
+def show(id):
+    sport_event = SportEvent.query.get(id)
+    if sport_event is None:
+        # Handle the case when the sport event with the given ID does not exist.
+        return render_template("errors/404.jinja"), 404
+
+    return render_template("sportevents/show.jinja", sport_event=sport_event)

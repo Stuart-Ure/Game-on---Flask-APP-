@@ -1,0 +1,21 @@
+
+
+{% extends 'base.jinja' %}
+
+{% block content %}
+<h1>{{ sport_event.name }}</h1>
+<h2>{{ sport_event.sport }}</h2>
+<h2>{{ sport_event.location}}</h2>
+<h2>{{ sport_event.date }}</h2>
+
+<h3>Visited by:</h3>
+
+<ul>
+    {% for user in sport_event.users %}
+    <li>{{ user.name }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+

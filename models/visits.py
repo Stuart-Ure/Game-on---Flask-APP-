@@ -10,3 +10,5 @@ class Visit(db.Model):
 
     def __repr__(self):
         return f"<Visit: {self.id}: {self.review}>"
+    
+    # visits.py

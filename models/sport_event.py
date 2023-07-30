@@ -9,7 +9,7 @@ class SportEvent(db.Model):
     location = db.Column(db.String(64))
     date = db.Column(db.String(64))
 
-    visits = db.relationship('Visit', backref='Sport Event')
+    users = db.relationship('User', secondary='visits')
 
     def __repr__(self):
-        return f"<Sport Event: {self.id}: {self.name}>"
+        return f"<SportEvent: {self.id}: {self.name}>"
