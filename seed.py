@@ -2,6 +2,8 @@ from app import db
 from models.sport_event import SportEvent
 from models.user import User
 from models.visits import Visit
+
+
 import click
 
 from flask.cli import with_appcontext

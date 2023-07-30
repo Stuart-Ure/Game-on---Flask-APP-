@@ -1,16 +1,29 @@
-{% extends 'base.jinja' %}
+{# {% extends 'base.jinja' %}
 {% block content %}
 
     <header> <h1><b> GAME ON</b> </h1> </header>
-    <h2> <h1> {{user.name}} </h1> event list</h2>
-
-<h3>Visited:</h3>
+    <h1> {{user.name}} </h1>
+    <h2> event list</h2>
+    <h3>Visited:</h3>
 <ul>
-    {% for sport_event in user.visits %}
+    {% for sport_event in user.sport_events %}
 <li>{{ sport_event.name }}</li>
     {% endfor %}
 </ul>
-    {%endblock%}
+    {%endblock%} #}
 
 
 
+{% extends 'base.jinja' %}
+
+{% block content %}
+    <h1>{{ user.name }}</h1>
+    <h2>Event List</h2>
+
+    <h3>Visited:</h3>
+    <ul>
+        {% for sport_event in sport_events %}
+            <li>{{ sport_event.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
