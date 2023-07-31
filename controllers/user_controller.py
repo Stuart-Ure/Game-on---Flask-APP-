@@ -12,12 +12,6 @@ def users():
     users = User.query.all()
     return render_template("users/index.jinja", users = users)
 
-# @users_blueprint.route ('/users/<id>')
-# def show_users (id):
-#     user =User.query.get(id)
-#     sport_event = SportEvent.query.join(Visit).filter(Visit.user_id == id)
-#     return render_template ('users/show.jinja',user = user, sport_event= sport_event)
-
 # search by instance of user
 
 @users_blueprint.route('/users/<int:id>')
@@ -54,7 +48,7 @@ def create_user():
 
     return redirect('/users')
 
-    #delete event
+    #delete user
 
 @users_blueprint.route('/users/<int:id>/delete', methods = ['POST'])
 def delete_user(id):
@@ -62,4 +56,16 @@ def delete_user(id):
     db.session.delete(delete_user)
     db.session.commit()
     return redirect("/users")
+
+
+    #edit user
+# @users_blueprint.route('/users/<int:id>/edit', methods = ['POST'])
+# def edit_user(id):
+#     edit_user = User.query.get(id)
+#     db.session.edit(edit_user)
+#     db.session.commit()
+#     return redirect("/users")
+
+
+
 

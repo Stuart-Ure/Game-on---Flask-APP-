@@ -8,13 +8,15 @@
 <h2>{{ sport_event.location}}</h2>
 <h2>{{ sport_event.date }}</h2>
 
-<h3>Visited by:</h3>
+<h3>Attended by:</h3>
 
 <ul>
     {% for user in sport_event.users %}
     <li>{{ user.name }}</li>
     {% endfor %}
 </ul>
+
+<a href="/sportevents/{{ sport_event.id }}/edit">Edit</a>
 
 {% endblock %}
 

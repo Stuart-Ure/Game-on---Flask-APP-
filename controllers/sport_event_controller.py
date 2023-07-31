@@ -55,3 +55,22 @@ def delete_sport_event(id):
     db.session.commit()
     return redirect("/sportevents")
 
+#edit event 
+
+@sport_event_blueprint.route("/sportevents/<int:id>/edit")
+def edit_sport_event(id):
+    sport_event = SportEvent.query.get(id)
+    return render_template("sportevents/edit.jinja", sport_event=sport_event)
+
+@sport_event_blueprint.route("/sportevents/<int:id>", methods=["POST"])
+def update_sport_event(id):
+    sport_event = SportEvent.query.get(id)
+    sport_event.name = request.form["name"]
+    sport_event.sport = request.form["sport"]
+    sport_event.location = request.form["location"]
+    sport_event.date = request.form["date"]
+    db.session.commit()
+    return render_template("sportevents/show.jinja", sport_event=sport_event)
+
+
+
