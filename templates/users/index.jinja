@@ -11,8 +11,21 @@
   {% for user in users %}
   <tr>
     <td><a href="/users/{{ user.id }}">{{ user.name }}</a></td>
+    <td>{{ user.name }}</td>
+    <td><form action="/users/{{ user.id }}/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Delete</button>
+        </form>
+    </td>
 
-  </tr>
+</tr>
   {% endfor %}
 </table>
+ <h2>Add a New User</h2>
+    <form action="/users" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <button type="submit">Add User</button>
+    </form>
 {% endblock %}

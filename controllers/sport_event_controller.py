@@ -38,8 +38,20 @@ def create_sport_event():
     location = request.form.get('location')
     date = request.form.get('date')
 
+    #add new event
+
     new_sport_event = SportEvent(name=name, sport=sport, location=location, date=date)
     db.session.add(new_sport_event)
     db.session.commit()
 
     return redirect('/sportevents')
+
+    #delete event
+
+@sport_event_blueprint.route("/sportevents/<int:id>/delete", methods=["POST"])
+def delete_sport_event(id):
+    sport_event = SportEvent.query.get(id)
+    db.session.delete(sport_event)
+    db.session.commit()
+    return redirect("/sportevents")
+

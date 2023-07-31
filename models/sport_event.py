@@ -1,4 +1,5 @@
 from app import db
+from datetime import date
 
 class SportEvent(db.Model):
     __tablename__ = "Sport Event"
@@ -7,7 +8,7 @@ class SportEvent(db.Model):
     name = db.Column(db.String(64))
     sport = db.Column(db.String(64))
     location = db.Column(db.String(64))
-    date = db.Column(db.String(64))
+    date = db.Column(db.Date)
 
     users = db.relationship('User', secondary='visits')
 

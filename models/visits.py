@@ -12,3 +12,4 @@ class Visit(db.Model):
         return f"<Visit: {self.id}: {self.review}>"
     
     # visits.py
+
