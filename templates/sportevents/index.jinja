@@ -1,23 +1,42 @@
-
 {% extends 'base.jinja' %}
 
 {% block content %}
-  <h1>Sport Events</h1>
+    <h1>Sport Events</h1>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Sport</th>
-      <th>Location</th>
-      <th>Date</th>
-    </tr>
-    {% for sportevent in sport_events %}
-    <tr>
-      <td><a href="/sportevents/{{ sportevent.id }}">{{ sportevent.name }}</a></td>
-      <td>{{ sportevent.sport }}</td>
-      <td>{{ sportevent.location }}</td>
-      <td>{{ sportevent.date }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            {# <th>Location</th>
+            <th>Date</th> #}
+        </tr>
+        {% for sportevent in sport_events %}
+        <tr>
+            <td><a href="/sportevents/{{ sportevent.id }}">{{ sportevent.name }}</a></td>
+            <td>{{ sportevent.sport }}</td>
+            {# <td>{{ sportevent.location }}</td>
+            <td>{{ sportevent.date }}</td> #}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add a New Sport Event</h2>
+    <form action="/sportevents" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="sport">Sport:</label>
+        <input type="text" id="sport" name="sport" required>
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" required>
+
+        <button type="submit">Add Event</button>
+    </form>
 {% endblock %}
+
+
+
