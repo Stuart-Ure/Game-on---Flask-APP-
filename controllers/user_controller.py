@@ -12,6 +12,8 @@ def users():
     users = User.query.all()
     return render_template("users/index.jinja", users = users)
 
+
+
 # search by instance of user
 
 @users_blueprint.route('/users/<int:id>')
