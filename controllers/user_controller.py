@@ -52,7 +52,7 @@ def show(id):
             # Update the database to add a comment for the user and the event
             visit = Visit.query.filter_by(user_id=user.id, sport_event_id=event_id).first()
             if visit:
-                visit.review = comment
+                visit.comments = comment
                 db.session.commit()
 
     return render_template("users/show.jinja", user=user, all_sport_events=all_sport_events)
