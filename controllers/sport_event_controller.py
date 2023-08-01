@@ -21,15 +21,6 @@ def show(id):
 
 #HERE I AM ALLOWING THE SPORT EVENT INSTANCE TO BE SEARCHED BY ID FROM THE DATABASE
 
-# @sport_event_blueprint.route("/sportevents/<int:id>")
-# def show(id):
-#     sport_event = SportEvent.query.get(id)
-#     # if sport_event is None:
-#     #     return render_template("errors/404.jinja"), 404
-
-#     return render_template("sportevents/show.jinja", sport_event=sport_event)
-
-
 
 @sport_event_blueprint.route("/sportevents", methods=['POST'])
 def create_sport_event():

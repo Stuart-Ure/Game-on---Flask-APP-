@@ -2,17 +2,13 @@
 <html>
 <head>
     <title>Game On</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+
 </head>
- <header>
+ <header class="home">
   
       <h1><b><a href = "/"> GAME ON</b></h1></a>
-    </header>
-<body>
-  {% block content %}
-
-    {% endblock %}
-  <main class="flex flex--row">
-    <nav>
+      <nav class="pageroutes">
       <ul>
         <li>
           <a href="/sportevents">Sport Event</a>
@@ -25,6 +21,13 @@
         </li>
       </ul>
     </nav>
+
+    </header>
+<body>
+ <main>
+  {% block content %}
+
+    {% endblock %}
   </main>
 </body>
 </html>
