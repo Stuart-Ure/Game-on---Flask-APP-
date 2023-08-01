@@ -7,12 +7,13 @@ from app import db
 
 users_blueprint = Blueprint("users", __name__)
 
+
+users_blueprint = Blueprint("users", __name__)
+
 @users_blueprint.route("/users")
 def users():
     users = User.query.all()
     return render_template("users/index.jinja", users = users)
-
-
 
 # search by instance of user
 
@@ -31,12 +32,30 @@ def add_attended_event(id):
     event_id = request.form.get('event_id')
     
     if event_id:
-        # Update the database to mark the event as attended by the user
         visit = Visit(user_id=user.id, sport_event_id=event_id)
         db.session.add(visit)
         db.session.commit()
     
     return redirect(f"/users/{user.id}")
+
+
+@users_blueprint.route('/users/<int:id>', methods=['GET', 'POST'])
+def show(id):
+    user = User.query.get(id)
+    all_sport_events = SportEvent.query.all()  # Get all sport events
+
+    if request.method == 'POST':
+        event_id = request.form.get('event_id')
+        comment = request.form.get('comment')
+
+        if event_id:
+            # Update the database to add a comment for the user and the event
+            visit = Visit.query.filter_by(user_id=user.id, sport_event_id=event_id).first()
+            if visit:
+                visit.review = comment
+                db.session.commit()
+
+    return render_template("users/show.jinja", user=user, all_sport_events=all_sport_events)
 
 #add a new user
 

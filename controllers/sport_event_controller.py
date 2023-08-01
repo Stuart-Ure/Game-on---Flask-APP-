@@ -13,21 +13,21 @@ def sport_events():
     return render_template("sportevents/index.jinja", sport_events=sport_events)
 
 
-# @sport_event_blueprint.route("/sportevents/<int:id>")
-# def show(id):
-#     sport_event = SportEvent.query.get(id)
-#     users = User.query.join(Visit).filter(Visit.sport_event_id ==id)
-#     return render_template("sportevents/show.jinja", sport_event = sport_event, users =users)
-
-#HERE I AM ALLOWING THE SPORT EVENT INSTANCE TO BE SEARCHED BY ID FROM THE DATABASE
-
 @sport_event_blueprint.route("/sportevents/<int:id>")
 def show(id):
     sport_event = SportEvent.query.get(id)
-    # if sport_event is None:
-    #     return render_template("errors/404.jinja"), 404
+    users = User.query.join(Visit).filter(Visit.sport_event_id ==id)
+    return render_template("sportevents/show.jinja", sport_event = sport_event, users =users)
 
-    return render_template("sportevents/show.jinja", sport_event=sport_event)
+#HERE I AM ALLOWING THE SPORT EVENT INSTANCE TO BE SEARCHED BY ID FROM THE DATABASE
+
+# @sport_event_blueprint.route("/sportevents/<int:id>")
+# def show(id):
+#     sport_event = SportEvent.query.get(id)
+#     # if sport_event is None:
+#     #     return render_template("errors/404.jinja"), 404
+
+#     return render_template("sportevents/show.jinja", sport_event=sport_event)
 
 
 

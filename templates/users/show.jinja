@@ -5,10 +5,11 @@
 
     <h3>Visited:</h3>
     <ul>
-        {% for sport_event in sport_events %}
-            <li>{{ sport_event.name }}</li>
+        {% for visit in user.visits %}
+            <li>{{ visit.sport_event.name }}</li>
         {% endfor %}
     </ul>
+
     <h3>Add Attended Event:</h3>
     <form action="/users/{{ user.id }}/add_attended_event" method="post">
         <select name="event_id">
@@ -18,4 +19,23 @@
         </select>
         <button type="submit">Add</button>
     </form>
+
+    <h2>Add a Comment:</h2>
+    <form action="/users/{{ user.id }}" method="post">
+        <select name="event_id">
+            {% for visit in user.visits %}
+                <option value="{{ visit.sport_event.id }}">{{ visit.sport_event.name }}</option>
+            {% endfor %}
+        </select>
+        <textarea name="comment" rows="4" cols="50"></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <h3>Comments:</h3>
+    <ul>
+        {% for visit in user.visits %}
+            <li>{{ visit.sport_event.name }} - {{ visit.review }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
