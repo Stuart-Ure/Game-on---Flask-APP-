@@ -17,5 +17,5 @@ visits_blueprint = Blueprint("visits", __name__)
 
 @visits_blueprint.route("/visits")
 def visits():
-    users_with_attended_events = User.query.filter(User.visits.any()).all()
+    users_with_attended_events = User.query.join(Visit).filter(Visit.user_id == User.id).all()
     return render_template("visits/index.jinja", users=users_with_attended_events)

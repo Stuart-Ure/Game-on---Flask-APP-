@@ -20,7 +20,8 @@ def users():
 @users_blueprint.route('/users/<int:id>')
 def show_users(id):
     user = User.query.get(id)
-    sport_events = user.sport_events  # Access sport_events through the new relationship
+    sport_events = SportEvent.query.join(Visit).filter(Visit.user_id == user.id)
+    # sport_events = user.sport_events  # Access sport_events through the new relationship
     all_sport_events = SportEvent.query.all() 
     return render_template('users/show.jinja', user=user, sport_events=sport_events,  all_sport_events=all_sport_events)
 
@@ -77,14 +78,6 @@ def delete_user(id):
     db.session.commit()
     return redirect("/users")
 
-
-    #edit user
-# @users_blueprint.route('/users/<int:id>/edit', methods = ['POST'])
-# def edit_user(id):
-#     edit_user = User.query.get(id)
-#     db.session.edit(edit_user)
-#     db.session.commit()
-#     return redirect("/users")
 
 
 

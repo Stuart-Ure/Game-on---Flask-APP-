@@ -10,8 +10,8 @@ class SportEvent(db.Model):
     sport = db.Column(db.String(64))
     location = db.Column(db.String(64))
     date = db.Column(db.Date)
-
-    users = db.relationship('User', secondary='visits', cascade ="all, delete")
+    
+    visits= db.relationship("Visit", backref="sport_event")
 
     def __repr__(self):
         return f"<SportEvent: {self.id}: {self.name}>"
