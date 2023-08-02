@@ -1,0 +1,82 @@
+/* Add this CSS to your existing stylesheet or create a new one */
+
+.sport-events {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.sport-events h1 {
+    font-size: 36px;
+    color:#1d1c1c;
+    ;
+    margin-bottom: 20px;
+}
+
+.sport-events table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sport-events th, .sport-events td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.sport-events th {
+    background-color: #f2f2f2;
+}
+
+.sport-events a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.sport-events a:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-sport-event {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 40px;
+}
+
+.add-sport-event h2 {
+    font-size: 24px;
+    color: #1d1c1c;
+    margin-bottom: 20px;
+}
+
+.add-sport-event label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.add-sport-event input[type="text"],
+.add-sport-event input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

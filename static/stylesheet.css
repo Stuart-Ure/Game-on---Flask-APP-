@@ -74,3 +74,27 @@ header a:hover {
 .pageroutes li a:hover {
     color: #ffcc00;
 }
+
+/* Style for the content block */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Style for the welcome heading */
+.welcome h2 {
+    font-size: 36px;
+    color: #1d1c1c;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+/* Style for the info paragraphs */
+.info p {
+    font-size: 18px;
+    color: #454545;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
