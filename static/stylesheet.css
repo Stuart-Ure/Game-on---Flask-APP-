@@ -17,7 +17,7 @@ body {
     padding: 20px; 
     background-color: rgba(255, 255, 255, 0.8); 
     margin: 0 auto;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /* Header styles */
@@ -36,7 +36,6 @@ header h1 {
 header a {
     text-decoration: none;
     color: #fff;
-    /* transition: ease-in-out 0.3s; */
 }
 
 header a:hover {
@@ -64,9 +63,9 @@ header a:hover {
 .pageroutes li a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     padding: 8px 16px;
-    border: 2px solid #fff;
+    border: 2px solid #333;
     border-radius: 30px;
 
 }
@@ -86,7 +85,7 @@ header a:hover {
 /* Style for the welcome heading */
 .welcome h2 {
     font-size: 36px;
-    color: #1d1c1c;
+    color: #141414;
     margin-bottom: 20px;
     margin-top: 8px;
 }
@@ -94,7 +93,7 @@ header a:hover {
 /* Style for the info paragraphs */
 .info p {
     font-size: 18px;
-    color: #454545;
+    color:#141414;
     line-height: 1.6;
     margin-bottom: 15px;
 }

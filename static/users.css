@@ -1,0 +1,55 @@
+/* Users page styles */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1.5px solid #555;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-size: 18px;
+}
+
+td {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+a:hover {
+    color: #ffcc00;
+}
+
+form {
+    display: inline;
+}
+
+button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #c82333;
+}

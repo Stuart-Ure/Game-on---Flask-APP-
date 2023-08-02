@@ -3,21 +3,19 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<h1>{{ sport_event.name }}</h1>
-<h2>{{ sport_event.sport }}</h2>
-<h2>{{ sport_event.location}}</h2>
-<h2>{{ sport_event.date }}</h2>
+    <div class="sport-event-details">
+        <h1>{{ sport_event.name }}</h1>
+        <h2>{{ sport_event.sport }}</h2>
+        <h2>{{ sport_event.location }}</h2>
+        <h2>{{ sport_event.date }}</h2>
 
-<h3>Attended by:</h3>
+        <h3>Attended by:</h3>
+        <ul>
+            {% for user in users %}
+                <li>{{ user.name }}</li>
+            {% endfor %}
+        </ul>
 
-<ul>
-    {% for user in users %}
-    <li>{{ user.name }}</li>
-    {% endfor %}
-</ul>
-
-<a href="/sportevents/{{ sport_event.id }}/edit">Edit</a>
-
+        <a href="/sportevents/{{ sport_event.id }}/edit" class="edit-btn">Edit</a>
+    </div>
 {% endblock %}
-
-

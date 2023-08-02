@@ -1,16 +1,16 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-    <h1>Recommendations</h1>
+    <h1 class=" friends">Events and Notes</h1>
 
     {% for user in users %}
-        <h2>{{ user.name }}'s Attended Events</h2>
-        <ul>
-            {% for visit in user.visits %}
-                <li>{{ visit.sport_event.name }} - {{ visit.comments }}</li>
-            {% endfor %}
-        </ul>
+        <div class="attended-events">
+            <h2>{{ user.name }}'s Attended Events</h2>
+            <ul>
+                {% for visit in user.visits %}
+                    <li>{{ visit.sport_event.name }} - {{ visit.comments }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endfor %}
 {% endblock %}
-
-

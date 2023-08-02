@@ -17,7 +17,7 @@ def sport_events():
 def show(id):
     sport_event = SportEvent.query.get(id)
     users = User.query.join(Visit).filter(Visit.sport_event_id ==id)
-    
+
     return render_template("sportevents/show.jinja", sport_event = sport_event, users =users)
 
 #HERE I AM ALLOWING THE SPORT EVENT INSTANCE TO BE SEARCHED BY ID FROM THE DATABASE
@@ -43,9 +43,9 @@ def create_sport_event():
 @sport_event_blueprint.route("/sportevents/<int:id>/delete", methods=["POST"])
 def delete_sport_event(id):
     sport_event = SportEvent.query.get(id)
-    for visit in sport_event.visits:
-        sport_event.visits.remove(visit)
-    db.session.delete(visit)
+    # for visit in sport_event.visits:
+    #     sport_event.visits.remove(visit)
+    # db.session.delete(visit)
     db.session.delete(sport_event)
     db.session.commit()
     return redirect("/sportevents")
